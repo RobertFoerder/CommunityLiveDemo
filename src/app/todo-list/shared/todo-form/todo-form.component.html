@@ -1,0 +1,15 @@
+<form (ngSubmit)="save()" #todoForm="ngForm">
+    <div class="form-group">
+        <label for="todoName">Name* </label><br>
+        <input required type="text" name="todoName" [(ngModel)]="todo.name">
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description </label><br>
+        <textarea type="text" name="description" [(ngModel)]="todo.description"
+        class="description" ></textarea>
+    </div>
+
+    <button (click)="cancel()">Cancel</button>
+    <button type="submit" [disabled]="!todoForm.valid">Save</button>
+</form>

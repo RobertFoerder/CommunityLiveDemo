@@ -1,0 +1,24 @@
+<h2>ToDos</h2>
+
+<input type="radio" name="all" value="all" [(ngModel)]="filter">
+<label for="all">All</label><br>
+<input type="radio" name="onlyDone" value="done" [(ngModel)]="filter">
+<label for="onlyDone">Done</label><br>
+<input type="radio" name="onlyNotDone" value="notDone" [(ngModel)]="filter">
+<label for="onlyNotDone">Not Done</label>
+
+<br>
+<button>
+    <a routerLink="add">Add ToDo</a>
+</button>
+
+<div *ngFor="let todo of todos">
+    <div *ngIf="showToDo(todo)">
+        <h3>
+            <a routerLink="edit/{{todo.id}}">{{todo.name}}</a>
+        </h3>
+        <p>{{todo.description}}</p>
+        <input type="checkbox" name="done" [(ngModel)]="todo.done" (ngModelChange)="saveTodo(todo)">
+        <label for="done">Erledigt</label>
+    </div>
+</div>
