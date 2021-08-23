@@ -50,6 +50,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'ToDoDemo'
-        slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_67d15ff293c64364885939625de0c88c }}
         package: ./CommunityLiveDemo
